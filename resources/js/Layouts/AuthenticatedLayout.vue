@@ -43,7 +43,7 @@ defineProps({
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" v-if="!canLogin">
-                                <NavLink :href="route('dashboard.edit')" :active="route().current('dashboard.edit')">
+                                <NavLink :href="route('dashboard.index')" :active="route().current('dashboard.index')">
                                     Dashboard
                                 </NavLink>
                             </div>
@@ -143,7 +143,7 @@ defineProps({
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard.edit')" :active="route().current('dashboard.edit')">
+                        <ResponsiveNavLink :href="route('dashboard.index')" :active="route().current('dashboard.index')">
                             Dashboard
                         </ResponsiveNavLink>
                     </div>

@@ -23,7 +23,7 @@ const clearForm = () => {
 };
 
 const submitForm = () => {
-    form.post(route('dashboard.add'), {
+    form.post(route('dashboard.create'), {
         preserveScroll: true,
         onFinish: () => {
             props.refreshWorks();

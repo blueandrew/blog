@@ -58,20 +58,8 @@ const closeConfirmWorkDeletionModal = () => {
     confirmingWorkDeletion.value = false;
 };
 
-const deleteWork = () => {
-    axios.delete('/dashboard/'+workId.value)
-    .then(response => {
-        closeConfirmWorkDeletionModal();
-        worksList = worksList.filter(work => work.id !== workId.value);
-        refreshWorks();
-    })
-    .catch(error => {
-        console.log(error);
-    });
-};
-
 const refreshWorks = () => {
-    axios.get('/dashboard/works')
+    axios.get('/dashboard/getWorks')
     .then(response => {
         worksList = response.data;
         usePage().props.works = response.data;
