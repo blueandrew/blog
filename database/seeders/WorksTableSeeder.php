@@ -18,7 +18,7 @@ class WorksTableSeeder extends Seeder
             $works = new Works;
             $works->user_id = 1;
             $works->title = 'title'.$index;
-            $works->url = "https://laravel.com/img/logomark.min.svg";
+            $works->url = "https://xxxx";
             $works->status = 1;
             $works->save();
         }
