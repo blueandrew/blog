@@ -39,12 +39,12 @@ defineProps({
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('home')" :active="route().current('home')">
-                                    Home
+                                    首頁
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" v-if="!canLogin">
                                 <NavLink :href="route('dashboard.index')" :active="route().current('dashboard.index')">
-                                    Dashboard
+                                    管理
                                 </NavLink>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ defineProps({
                                     :href="route('login')"
                                     class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                                 >
-                                    Log in
+                                    登入
                                 </Link>
 
                                 <Link
@@ -62,7 +62,7 @@ defineProps({
                                     :href="route('register')"
                                     class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                                 >
-                                    Register
+                                    註冊
                                 </Link>
                             </div>
                         </div>
@@ -144,7 +144,7 @@ defineProps({
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard.index')" :active="route().current('dashboard.index')">
-                            Dashboard
+                            管理
                         </ResponsiveNavLink>
                     </div>
 

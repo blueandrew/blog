@@ -16,7 +16,7 @@ defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Home</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">首頁</h2>
         </template>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
