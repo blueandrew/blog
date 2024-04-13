@@ -1,6 +1,7 @@
 <script setup>
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
@@ -17,11 +18,16 @@ const form = useForm({
     status: 1,
 });
 
+const clearForm = () => {
+    form.reset()
+};
+
 const submitForm = () => {
     form.post(route('dashboard.add'), {
+        preserveScroll: true,
         onFinish: () => {
             props.refreshWorks();
-            props.closeWorkAddModal();
+            // props.closeWorkAddModal();
         }
     });
 };
@@ -78,9 +84,7 @@ const submitForm = () => {
                 </select>
             </div>
 
-            <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
-
+            <div class="flex items-center justify-end gap-4">
                 <Transition
                     enter-active-class="transition ease-in-out"
                     enter-from-class="opacity-0"
@@ -89,6 +93,10 @@ const submitForm = () => {
                 >
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
                 </Transition>
+
+                <SecondaryButton @click="closeWorkAddModal(); clearForm()"> Cancel </SecondaryButton>
+
+                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
             </div>
         </form>
     </section>

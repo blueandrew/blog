@@ -2,6 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Modal from '@/Components/Modal.vue';
 import UpdateDataForm from '@/Pages/Dashboard/UpdateDataForm.vue';
+import DeleteDataForm from '@/Pages/Dashboard/DeleteDataForm.vue';
 import AddDataForm from '@/Pages/Dashboard/AddDataForm.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import DangerButton from '@/Components/DangerButton.vue';
@@ -67,7 +68,6 @@ const deleteWork = () => {
     .catch(error => {
         console.log(error);
     });
-
 };
 
 const refreshWorks = () => {
@@ -184,10 +184,6 @@ const refreshWorks = () => {
         <Modal :show="confirmingWorkAdd" @close="closeWorkAddModal">
             <div class="p-6">
                 <AddDataForm class="max-w-xl" :refreshWorks="refreshWorks" :closeWorkAddModal="closeWorkAddModal"/>
-
-                <div class="mt-6 flex justify-end">
-                    <SecondaryButton @click="closeWorkAddModal"> Cancel </SecondaryButton>
-                </div>
             </div>
         </Modal>
 
@@ -195,38 +191,13 @@ const refreshWorks = () => {
         <Modal :show="confirmingWorkEdit" @close="closeWorkEditModal">
             <div class="p-6">
                 <UpdateDataForm class="max-w-xl" :dataItem="dataItem" :refreshWorks="refreshWorks" :closeWorkEditModal="closeWorkEditModal"/>
-
-                <div class="mt-6 flex justify-end">
-                    <SecondaryButton @click="closeWorkEditModal"> Cancel </SecondaryButton>
-                </div>
             </div>
         </Modal>
 
         <!-- Delete  Modal-->
         <Modal :show="confirmingWorkDeletion" @close="closeConfirmWorkDeletionModal">
             <div class="p-6">
-                <h2 class="text-lg font-medium text-gray-900">
-                    Are you sure you want to delete your account?
-                </h2>
-
-                <p class="mt-1 text-sm text-gray-600">
-                    Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                    enter your password to confirm you would like to permanently delete your account.
-                </p>
-
-                <div class="mt-6">
-                </div>
-
-                <div class="mt-6 flex justify-end">
-                    <SecondaryButton @click="closeConfirmWorkDeletionModal"> Cancel </SecondaryButton>
-
-                    <DangerButton
-                        class="ms-3"
-                        @click="deleteWork"
-                    >
-                        Delete Work
-                    </DangerButton>
-                </div>
+                <DeleteDataForm class="max-w-xl" :workId="workId" :worksList="worksList" :refreshWorks="refreshWorks" :closeConfirmWorkDeletionModal="closeConfirmWorkDeletionModal"/>
             </div>
         </Modal>
     </AuthenticatedLayout>

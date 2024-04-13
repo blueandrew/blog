@@ -19,8 +19,8 @@ Route::get('/Welcome', function () {
 Route::get('/', [HomeController::class, 'edit'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'edit'])->middleware(['auth', 'verified'])->name('dashboard.edit');
-
 Route::get('/dashboard/works', [DashboardController::class, 'works'])->name('dashboard.get');
+Route::patch('/dashboard{id}', [DashboardController::class, 'update'])->name('dashboard.update');
 Route::post('/dashboard', [DashboardController::class, 'add'])->name('dashboard.add');
 Route::delete('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
 
