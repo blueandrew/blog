@@ -3,7 +3,6 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 
-
 let props = defineProps({
     refreshWorks: Function,
     closeConfirmWorkDeletionModal: Function,
@@ -28,28 +27,24 @@ const deleteWork = () => {
         console.log(error);
     });
 };
-
 </script>
 
 <template>
     <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Profile Information</h2>
+            <h2 class="text-lg font-medium text-gray-900">
+                刪除
+            </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                Update your account's profile information and email address.
+                刪除
             </p>
         </header>
 
         <form @submit.prevent="submitForm" class="mt-6 space-y-6">
             <h2 class="text-lg font-medium text-gray-900">
-                Are you sure you want to delete your account?
+                您確定要刪除?
             </h2>
-
-            <p class="mt-1 text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                enter your password to confirm you would like to permanently delete your account.
-            </p>
 
             <div class="mt-6">
             </div>
@@ -61,16 +56,15 @@ const deleteWork = () => {
                     leave-active-class="transition ease-in-out"
                     leave-to-class="opacity-0"
                 >
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">
+                        刪除成功
+                    </p>
                 </Transition>
 
-                <SecondaryButton @click="closeConfirmWorkDeletionModal"> Cancel </SecondaryButton>
+                <SecondaryButton @click="closeConfirmWorkDeletionModal">關閉</SecondaryButton>
                 
-                <DangerButton
-                    class="ms-3"
-                    @click="deleteWork"
-                >
-                    Delete Work
+                <DangerButton class="ms-3" @click="deleteWork">
+                    刪除
                 </DangerButton>
             </div>
         </form>

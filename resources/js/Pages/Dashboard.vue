@@ -75,7 +75,7 @@ const refreshWorks = () => {
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">管理</h2>
         </template>
 
         <div ata-inertia-replace class="py-12 max-w-7xl mx-auto sm:px-6 lg:px-8 ">
@@ -84,13 +84,13 @@ const refreshWorks = () => {
                     <thead>
                         <tr>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Image
+                                圖片
                             </th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Title
+                                標題
                             </th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                Status
+                                狀態
                             </th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50">
                                 <a href="#" @click="confirmWorkAdd(index)">

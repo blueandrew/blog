@@ -6,7 +6,6 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 
-
 let props = defineProps({
     dataItem: Object,
     refreshWorks: Function,
@@ -31,17 +30,18 @@ const submitForm = () => {
 <template>
     <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900">Profile Information</h2>
+            <h2 class="text-lg font-medium text-gray-900">
+                編輯
+            </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                Update your account's profile information and email address.
+                編輯
             </p>
         </header>
 
         <form @submit.prevent="submitForm" class="mt-6 space-y-6">
             <div>
-                <InputLabel for="title" value="Title" />
-
+                <InputLabel for="title" value="標題" />
                 <TextInput
                     id="title"
                     type="text"
@@ -57,7 +57,6 @@ const submitForm = () => {
 
             <div>
                 <InputLabel for="url" value="Url" />
-
                 <TextInput
                     id="url"
                     type="url"
@@ -71,11 +70,10 @@ const submitForm = () => {
             </div>
             
             <div>
-                <InputLabel for="status" value="status" />
-
+                <InputLabel for="status" value="狀態" />
                 <select id="status" class="mt-1 block w-full" v-model="form.status" >
-                    <option value="1">Now</option>
-                    <option value="2">Stop</option>
+                    <option value="1">啟用</option>
+                    <option value="2">停止</option>
                 </select>
             </div>
 
@@ -86,12 +84,14 @@ const submitForm = () => {
                     leave-active-class="transition ease-in-out"
                     leave-to-class="opacity-0"
                 >
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">
+                        刪除成功
+                    </p>
                 </Transition>
 
-                <SecondaryButton @click="closeWorkEditModal"> Cancel </SecondaryButton>
+                <SecondaryButton @click="closeWorkEditModal">關閉</SecondaryButton>
 
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">儲存</PrimaryButton>
             </div>
         </form>
     </section>
