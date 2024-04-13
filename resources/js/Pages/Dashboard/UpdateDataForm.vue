@@ -85,7 +85,7 @@ const submitForm = () => {
                     leave-to-class="opacity-0"
                 >
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">
-                        刪除成功
+                        編輯成功
                     </p>
                 </Transition>
 
